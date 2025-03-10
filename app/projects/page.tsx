@@ -25,7 +25,12 @@ export default function Projects() {
           >
             <div className="w-full flex flex-col space-y-3">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                <h2 className="text-xl font-medium text-black dark:text-white">{project.title}</h2>
+                <div className="flex items-center">
+                  <h2 className="text-xl font-medium text-black dark:text-white">{project.title}</h2>
+                  <span className="ml-2 text-xs font-medium px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full">
+                    {project.size}
+                  </span>
+                </div>
                 <span className="mt-1 sm:mt-0 text-sm font-medium px-3 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-full">
                   {project.year} - {project.endYear || "Present"}
                 </span>
@@ -33,6 +38,18 @@ export default function Projects() {
               <p className="text-neutral-600 dark:text-neutral-400 text-[15px] leading-relaxed">
                 {project.description}
               </p>
+              {project.techStack && (
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech, techIndex) => (
+                    <span 
+                      key={techIndex}
+                      className="text-xs font-medium px-2 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
               <div>
                 <Link
                   href={project.url}
