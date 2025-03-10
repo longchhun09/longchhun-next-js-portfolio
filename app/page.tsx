@@ -11,9 +11,9 @@ export default function Page() {
           <div className="md:w-1/3 flex justify-center md:justify-start">
             <div className="relative">
               <Image
-                src="/profile.jpeg"
+                src="/profile.jpg"
                 alt="Long Chhun - Software Developer"
-                className="rounded-lg shadow-md grayscale hover:grayscale-0 transition-all duration-300 border-2 border-neutral-200 dark:border-neutral-800"
+                className="rounded-lg shadow-md border-2 border-neutral-200 dark:border-neutral-800"
                 unoptimized
                 width={200}
                 height={200}
@@ -50,7 +50,7 @@ export default function Page() {
                   href={socialLinks.cv} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-800 dark:bg-neutral-700 text-white rounded-md hover:bg-neutral-700 dark:hover:bg-neutral-600 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-100  dark:bg-neutral-700 hover:text-white rounded-md hover:bg-neutral-700 dark:hover:bg-neutral-600 transition-colors"
                   aria-label="Download CV"
                 >
                   Download CV

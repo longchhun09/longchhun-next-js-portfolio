@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { projects } from "./project-data";
 
 export const metadata: Metadata = {
@@ -24,6 +25,17 @@ export default function Projects() {
             className="p-5 border border-neutral-200 dark:border-neutral-800 rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-all duration-200"
           >
             <div className="w-full flex flex-col space-y-3">
+              {project.img && (
+                <div className="w-full h-48 relative mb-3 overflow-hidden rounded-lg">
+                  <Image 
+                    src={project.img}
+                    alt={`${project.title} preview`}
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              )}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
                 <div className="flex items-center">
                   <h2 className="text-xl font-medium text-black dark:text-white">{project.title}</h2>
