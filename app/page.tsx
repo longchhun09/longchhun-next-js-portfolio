@@ -3,62 +3,80 @@ import { socialLinks } from "./config";
 
 export default function Page() {
   return (
-    <section>
-      <a href={socialLinks.twitter} target="_blank">
-        <Image
-          src="/profile.png"
-          alt="Profile photo"
-          className="rounded-full bg-gray-100 block lg:mt-5 mt-0 lg:mb-5 mb-10 mx-auto sm:float-right sm:ml-5 sm:mb-5 grayscale hover:grayscale-0"
-          unoptimized
-          width={160}
-          height={160}
-          priority
-        />
-      </a>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">
-        Portfolio template!
-      </h1>
-      <div className="prose prose-neutral dark:prose-invert">
-        <p>
-          A clean, fast, and lightweight portfolio template built with Next.js,
-          Vercel, and Tailwind CSS.
-        </p>
-        <p>
-          Nextfolio has everything you need for a portfolio: MDX blog, SEO, RSS,
-          Atom & JSON feeds, analytics, Tweet & YouTube embeds, KaTeX and {""}
-          <a
-            target="_blank"
-            href="https://github.com/1msirius/Nextfolio?tab=readme-ov-file#features"
-          >
-            more
-          </a>
-          .
-        </p>
-        <p>
-          Nextfolio is{" "}
-          <a href={socialLinks.github} target="_blank">
-            open-source
-          </a>{" "}
-          and fully customizable, making it easy to add more features.
-        </p>
-        <p>
-          <a
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F1msirius%2FNextfolio"
-            target="_blank"
-          >
-            Deploy
-          </a>{" "}
-          your Nextfolio site with Vercel in minutes and follow the set up
-          instructions in the{" "}
-          <a href="/blog/getting-started">Getting Started</a> post.
-        </p>
-        <p>
-          Built and maintained by{" "}
-          <a href="https://imsirius.xyz/" target="_blank">
-            Sirius
-          </a>
-          .
-        </p>
+    <section className="py-10 md:py-16">
+      {/* Hero Container */}
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+          {/* Image Column */}
+          <div className="md:w-1/3 flex justify-center md:justify-start">
+            <div className="relative">
+              <Image
+                src="/profile.jpeg"
+                alt="Long Chhun - Software Developer"
+                className="rounded-lg shadow-md grayscale hover:grayscale-0 transition-all duration-300 border-2 border-neutral-200 dark:border-neutral-800"
+                unoptimized
+                width={200}
+                height={200}
+                priority
+              />
+            </div>
+          </div>
+          
+          {/* Content Column */}
+          <div className="md:w-2/3 flex flex-col text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">
+              Long Chhun
+            </h1>
+            <h2 className="text-xl md:text-2xl font-medium text-neutral-600 dark:text-neutral-400 mb-5">
+              Software Developer
+            </h2>
+            
+            <div className="prose prose-neutral dark:prose-invert max-w-none">
+              <p className="text-lg mb-4">
+                Based in Phnom Penh, Cambodia, currently working as a Senior Frontend Developer at Khalibre Co., Ltd with over 9 years of experience in web development.
+              </p>
+              <p className="mb-4">
+                I specialize in building modern, efficient web applications with expertise in Vue.js, TypeScript, Liferay DXP, PHP, and automation testing. 
+                My focus is on creating user-friendly interfaces that deliver exceptional experiences across all devices.
+              </p>
+              <p className="mb-6">
+                My technical skills include Vue.js, TypeScript, PHP, Java, Automation Testing, and modern frontend workflows. 
+                I have extensive experience in designing scalable architecture for enterprise applications and implementing complex UI requirements efficiently.
+              </p>
+              
+              {/* Social Links */}
+              <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
+                <a 
+                  href={socialLinks.cv} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-800 dark:bg-neutral-700 text-white rounded-md hover:bg-neutral-700 dark:hover:bg-neutral-600 transition-colors"
+                  aria-label="Download CV"
+                >
+                  Download CV
+                </a>
+                <a 
+                  href={socialLinks.github} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-100 dark:bg-neutral-800 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                  aria-label="GitHub Profile"
+                >
+                  GitHub
+                </a>
+                <a 
+                  href={socialLinks.linkedin} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-100 dark:bg-neutral-800 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                  aria-label="LinkedIn Profile"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
