@@ -8,7 +8,7 @@ export const metaData = {
 };
 
 export const socialLinks = {
-  github: 'https://github.com/masterskynetx10',
+  github: 'https://github.com/longchhun09',
   twitter: 'https://x.com/ChhunlongMark',
   linkedin: 'https://www.linkedin.com/in/long-chhun-5661849b/',
   email: 'mailto:mark.chhunlong@gmail.com',
