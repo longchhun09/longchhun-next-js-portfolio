@@ -1,8 +1,8 @@
 export const metaData = {
-  baseUrl: 'https://nextfolio-template.vercel.app/',
+  baseUrl: 'https://longchhun-portfolio.vercel.app',
   title: 'Long Chhun - Software Developer',
   name: 'Long Chhun',
-  ogImage: '/opengraph-image.png',
+  ogImage: '/coding.webp',
   description:
     'Software Developer with over 9 years of expertise in web development, specializing in building high-performance and user-friendly applications.',
 };
