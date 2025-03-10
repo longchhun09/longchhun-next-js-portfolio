@@ -27,7 +27,7 @@ export default function Projects() {
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
                 <h2 className="text-xl font-medium text-black dark:text-white">{project.title}</h2>
                 <span className="mt-1 sm:mt-0 text-sm font-medium px-3 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-full">
-                  {project.year}
+                  {project.year} - {project.endYear || "Present"}
                 </span>
               </div>
               <p className="text-neutral-600 dark:text-neutral-400 text-[15px] leading-relaxed">

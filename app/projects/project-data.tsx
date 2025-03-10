@@ -1,6 +1,7 @@
 export interface Project {
   title: string;
   year: number;
+  endYear?: number;
   description: string;
   url: string;
 }
@@ -14,7 +15,8 @@ export const projects: Project[] = [
   },
   {
     title: "Enterprise Web Portal",
-    year: 2024,
+    endYear: 2024,
+    year: 2019,
     description: "Led development of a Vue.js and TypeScript-based enterprise web portal for a Community training & Collaboration Platform. Implemented responsive UI components, optimized performance, and integrated with REST APIs.",
     url: "https://www.khalibre.com/capacity-building-platform",
   },
