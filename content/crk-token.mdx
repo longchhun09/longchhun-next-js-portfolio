@@ -74,6 +74,18 @@ payload:
 }
 ```
 
+or instead of payload can use header
+header:
+```javascript
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'X-Requested-With': 'XMLHttpRequest',
+    ...(csrfToken && { 'X-CSRF-TOKEN': csrfToken }),
+    ...config.headers
+  },
+```
+
 Once the request send backend will handle the matching logic. In our case we use Laravel the framework already has csrf builtin
 https://laravel.com/docs/12.x/csrf
 
