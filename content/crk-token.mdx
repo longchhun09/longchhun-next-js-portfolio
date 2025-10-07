@@ -13,6 +13,9 @@ We implemented a feature that allows clients to submit their certificate number 
 ![CSRF Token Prevention Flow](/images/certificate-check.png)
 
 
+Current application flow
+![Old Flow](/images/form-without-csrf-token.png)
+
 ## The Security Problem
 
 The web application sends a simple POST request to verify the certificate:
@@ -121,6 +124,10 @@ protected function tokensMatch($request)
           hash_equals($request->session()->token(), $token);
 }
 ```
+
+New application flow
+![New Flow](/images/form-with-csrf-token.png)
+
 ## Conclusion
 
 Implementing CSRF token protection is a crucial step in securing web applications.
