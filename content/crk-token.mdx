@@ -91,6 +91,36 @@ https://laravel.com/docs/12.x/csrf
 
 `app/Http/Middleware/VerifyCsrfToken.php`
 
+
+Token from input or request
+```php
+protected function getTokenFromRequest($request)
+{
+  $token = $request->input('_token') ?: $request->header('X-CSRF-TOKEN');
+
+  if (! $token && $header = $request->header('X-XSRF-TOKEN')) {
+      try {
+          $token = CookieValuePrefix::remove($this->encrypter->decrypt($header, static::serialized()));
+      } catch (DecryptException) {
+          $token = '';
+      }
+  }
+
+  return $token;
+}
+```
+
+Matching token
+```
+protected function tokensMatch($request)
+{
+  $token = $this->getTokenFromRequest($request);
+
+  return is_string($request->session()->token()) &&
+          is_string($token) &&
+          hash_equals($request->session()->token(), $token);
+}
+```
 ## Conclusion
 
 Implementing CSRF token protection is a crucial step in securing web applications. By following OWASP guidelines and implementing proper token validation, we can significantly reduce the risk of unauthorized access and malicious attacks.
@@ -101,7 +131,7 @@ Remember: **Security is not a one-time implementation but an ongoing process.** 
 
 - [OWASP CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 - [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/)
-- [Laravel csrf token] (https://laravel.com/docs/12.x/csrf)
+- [Laravel csrf token](https://laravel.com/docs/12.x/csrf)
 
 
 
