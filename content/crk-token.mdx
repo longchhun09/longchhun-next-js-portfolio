@@ -39,6 +39,8 @@ This approach creates several security vulnerabilities:
 
 To prevent these security flaws and ensure only legitimate users can check their certificates, we implemented CSRF (Cross-Site Request Forgery) token protection - one of the best practices recommended by OWASP.
 
+> **Legitimate users**: User use browser Chrome, Safari
+
 ### What is a CSRF Token?
 ![CSRF Token Prevention Flow](/images/csrf-token-prevention.png)
 
@@ -62,7 +64,7 @@ Here's how we implemented CSRF protection in our form:
 </form>
 ```
 
-Now our API request includes the CSRF token:
+Now our API request always includes the CSRF token:
 
 ```json
 payload:
@@ -72,24 +74,10 @@ payload:
 }
 ```
 
-### How It Works
+Once the request send backend will handle the matching logic. In our case we use Laravel the framework already has csrf builtin
+https://laravel.com/docs/12.x/csrf
 
-1. **Token Generation**: When a user visits the page, the server generates a unique CSRF token
-2. **Token Storage**: The token is stored in the user's session and embedded in the form
-3. **Request Validation**: When the form is submitted, the server validates that the token matches the one in the user's session
-4. **Attack Prevention**: Attackers cannot forge requests because they don't have access to the user's session token
-
-Most modern web frameworks handle CSRF token validation automatically in their middleware, making implementation straightforward.
-
-## Additional Security Considerations
-
-While CSRF tokens provide excellent protection against cross-site request forgery, consider implementing these additional security measures:
-
-1. **Rate Limiting**: Implement rate limiting to prevent brute force attacks
-2. **Input Validation**: Validate and sanitize all input data
-3. **HTTPS Only**: Ensure all communications use HTTPS
-4. **Session Management**: Implement proper session timeout and invalidation
-5. **Logging and Monitoring**: Monitor for suspicious activity and failed attempts
+`app/Http/Middleware/VerifyCsrfToken.php`
 
 ## Conclusion
 
@@ -101,7 +89,7 @@ Remember: **Security is not a one-time implementation but an ongoing process.** 
 
 - [OWASP CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html)
 - [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/)
-
+- [Laravel csrf token] (https://laravel.com/docs/12.x/csrf)
 
 
 
